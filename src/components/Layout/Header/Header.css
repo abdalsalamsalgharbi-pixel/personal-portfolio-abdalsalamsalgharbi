@@ -1,0 +1,118 @@
+.minimal-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem 4rem;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    pointer-events: auto;
+}
+
+.brand-side {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.4rem 0.8rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: fit-content;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #10b981;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.status-text {
+    font-size: 0.75rem;
+    color: #a1a1aa;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.info-side {
+    display: flex;
+    gap: 3rem;
+    text-align: right;
+}
+
+.location-info,
+.time-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.label {
+    font-size: 0.7rem;
+    color: #71717a;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+.value {
+    font-size: 0.9rem;
+    color: #e4e4e7;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .minimal-header {
+        padding: 1.5rem 2rem;
+    }
+
+    .info-side {
+        display: none;
+    }
+
+    .brand-name {
+        font-size: 1.2rem;
+    }
+}
