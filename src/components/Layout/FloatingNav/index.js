@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaUser, FaCode, FaProjectDiagram, FaEnvelope, FaHome, FaGraduationCap } from 'react-icons/fa';
@@ -8,6 +8,38 @@ const FloatingNav = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const isHomePage = location.pathname === '/';
+    const [activeSection, setActiveSection] = useState('home');
+
+    useEffect(() => {
+        if (!isHomePage) {
+            setActiveSection('');
+            return;
+        }
+
+        const handleScrollSpy = () => {
+            const sections = ['about', 'skills', 'certificates', 'contact'];
+            const scrollPosition = window.scrollY + 200;
+
+            if (window.scrollY < 300) {
+                setActiveSection('home');
+                return;
+            }
+
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const { offsetTop, offsetHeight } = element;
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        setActiveSection(section);
+                        break;
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScrollSpy);
+        return () => window.removeEventListener('scroll', handleScrollSpy);
+    }, [isHomePage]);
 
     const navItems = [
         { name: 'الرئيسية', icon: FaHome, path: '/', type: 'link' },
@@ -63,11 +95,10 @@ const FloatingNav = () => {
                         {item.type === 'scroll' ? (
                             <button
                                 onClick={() => handleScroll(item.path)}
-                                className="dock-item"
+                                className={`dock-item ${activeSection === item.path ? 'active' : ''}`}
                                 title={item.name}
                             >
                                 <item.icon />
-                                <span className="dock-tooltip">{item.name}</span>
                             </button>
                         ) : (
                             <Link
@@ -88,11 +119,10 @@ const FloatingNav = () => {
                                         window.scrollTo({ top: 0, behavior: 'smooth' });
                                     }
                                 }}
-                                className={`dock-item ${location.pathname === item.path ? 'active' : ''}`}
+                                className={`dock-item ${location.pathname === item.path || (isHomePage && item.path === '/' && activeSection === 'home') ? 'active' : ''}`}
                                 title={item.name}
                             >
                                 <item.icon />
-                                <span className="dock-tooltip">{item.name}</span>
                             </Link>
                         )}
                     </div>

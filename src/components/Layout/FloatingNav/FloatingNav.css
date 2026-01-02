@@ -62,28 +62,7 @@
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
-.dock-tooltip {
-    position: absolute;
-    top: -45px;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-}
-
-.nav-item-wrapper:hover .dock-tooltip {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
+/* Removed custom tooltips style per user request */
 
 @media (max-width: 768px) {
     .floating-nav-container {
