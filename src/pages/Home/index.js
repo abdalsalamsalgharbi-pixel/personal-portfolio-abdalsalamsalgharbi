@@ -14,15 +14,20 @@ const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash === '#contact') {
-      setTimeout(() => {
-        const element = document.getElementById('contact');
-        if (element) {
+    // Handle initial hash scroll and hash changes
+    const hash = location.hash;
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        // Short delay to ensure animations and layout are ready
+        const timer = setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+        }, 300);
+        return () => clearTimeout(timer);
+      }
     }
-  }, [location]);
+  }, [location.hash]);
 
   // --- Animation Variants ---
   const containerVariants = {

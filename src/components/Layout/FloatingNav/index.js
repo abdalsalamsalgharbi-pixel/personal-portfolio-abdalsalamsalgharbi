@@ -17,11 +17,32 @@ const FloatingNav = () => {
         { name: 'تواصل معي', icon: FaEnvelope, path: '/#contact', type: 'scroll' },
     ];
 
-    const handleScroll = (id) => {
-        if (!isHomePage) {
-            window.location.href = `/#${id}`;
+    const handleScroll = (targetPath) => {
+        // If it's a cross-page link (starts with /)
+        if (targetPath.startsWith('/')) {
+            if (isHomePage) {
+                const id = targetPath.split('#')[1];
+                if (id) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            } else {
+                navigate(targetPath);
+            }
             return;
         }
+
+        // Standard in-page scroll
+        if (!isHomePage) {
+            navigate(`/${targetPath.startsWith('#') ? '' : '#'}${targetPath}`);
+            return;
+        }
+
+        const id = targetPath.replace('#', '');
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
