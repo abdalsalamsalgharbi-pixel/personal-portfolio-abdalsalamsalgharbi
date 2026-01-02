@@ -14,16 +14,16 @@ const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Handle initial hash scroll and hash changes
     const hash = location.hash;
     if (hash) {
       const id = hash.replace('#', '');
       const element = document.getElementById(id);
       if (element) {
-        // Short delay to ensure animations and layout are ready
         const timer = setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
-        }, 300);
+          // Clear the hash after scrolling to prevent re-triggering
+          window.history.replaceState(null, '', window.location.pathname);
+        }, 500);
         return () => clearTimeout(timer);
       }
     }
