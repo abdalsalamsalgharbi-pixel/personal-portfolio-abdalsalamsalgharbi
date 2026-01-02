@@ -430,6 +430,7 @@ const Home = () => {
 
         {/* Certificates Section */}
         <motion.div
+          id="certificates"
           className="certificates-container"
           variants={containerVariants}
           initial="hidden"

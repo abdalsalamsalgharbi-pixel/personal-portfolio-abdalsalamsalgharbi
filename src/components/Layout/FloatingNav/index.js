@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaUser, FaCode, FaProjectDiagram, FaEnvelope, FaHome } from 'react-icons/fa';
+import { FaUser, FaCode, FaProjectDiagram, FaEnvelope, FaHome, FaGraduationCap } from 'react-icons/fa';
 import './FloatingNav.css';
 
 const FloatingNav = () => {
@@ -13,6 +13,7 @@ const FloatingNav = () => {
         { name: 'الرئيسية', icon: FaHome, path: '/', type: 'link' },
         { name: 'عنّي', icon: FaUser, path: 'about', type: 'scroll' },
         { name: 'المهارات', icon: FaCode, path: 'skills', type: 'scroll' },
+        { name: 'الشهادات', icon: FaGraduationCap, path: 'certificates', type: 'scroll' },
         { name: 'المشاريع', icon: FaProjectDiagram, path: '/projects', type: 'link' },
         { name: 'تواصل معي', icon: FaEnvelope, path: '/#contact', type: 'scroll' },
     ];
