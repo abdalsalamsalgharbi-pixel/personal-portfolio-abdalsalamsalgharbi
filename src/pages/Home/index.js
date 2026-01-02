@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   FaReact, FaNodeJs, FaPython, FaJs, FaDatabase, FaDocker, FaGitAlt, FaFigma,
   FaCode, FaPalette, FaDraftingCompass, FaMobileAlt, FaProjectDiagram,

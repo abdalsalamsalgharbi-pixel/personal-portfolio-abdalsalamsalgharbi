@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaUser, FaCode, FaProjectDiagram, FaEnvelope, FaHome } from 'react-icons/fa';
 import './FloatingNav.css';
 
 const FloatingNav = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const isHomePage = location.pathname === '/';
 
     const navItems = [
