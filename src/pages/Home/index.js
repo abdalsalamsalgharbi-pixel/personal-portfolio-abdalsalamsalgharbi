@@ -11,6 +11,18 @@ import profileImage from '../../assets/images/profile.jpg';
 import './Home.css';
 
 const Home = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#contact') {
+      setTimeout(() => {
+        const element = document.getElementById('contact');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location]);
 
   // --- Animation Variants ---
   const containerVariants = {

@@ -10,11 +10,13 @@ import Header from './components/Layout/Header';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import ProjectDetails from './pages/ProjectDetails';
+import ScrollToTop from './components/ScrollToTop';
 
 const Content = () => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
+      <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />

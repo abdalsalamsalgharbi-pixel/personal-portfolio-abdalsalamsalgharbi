@@ -13,7 +13,7 @@ const FloatingNav = () => {
         { name: 'عنّي', icon: FaUser, path: 'about', type: 'scroll' },
         { name: 'المهارات', icon: FaCode, path: 'skills', type: 'scroll' },
         { name: 'المشاريع', icon: FaProjectDiagram, path: '/projects', type: 'link' },
-        { name: 'تواصل', icon: FaEnvelope, path: 'contact', type: 'scroll' },
+        { name: 'تواصل معي', icon: FaEnvelope, path: '/#contact', type: 'scroll' },
     ];
 
     const handleScroll = (id) => {
@@ -50,6 +50,16 @@ const FloatingNav = () => {
                             <Link
                                 to={item.path}
                                 onClick={(e) => {
+                                    if (item.path === '/#contact') {
+                                        if (isHomePage) {
+                                            e.preventDefault();
+                                            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                                        } else {
+                                            navigate('/#contact');
+                                        }
+                                        return;
+                                    }
+
                                     if (item.path === '/' && isHomePage) {
                                         e.preventDefault();
                                         window.scrollTo({ top: 0, behavior: 'smooth' });
