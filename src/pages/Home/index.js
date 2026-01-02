@@ -260,7 +260,7 @@ const Home = () => {
             <h1 style={{ transform: "translateZ(40px)" }}>
               عبدالسلام الغربي.
               <br />
-              <span style={{ color: "var(--text-secondary)", fontWeight: "400" }}>Full-Stack Developer</span>
+              <span style={{ color: "var(--text-secondary)", fontWeight: "400" }}>مهندس IT - Full-Stack Developer</span>
             </h1>
             <p style={{ transform: "translateZ(30px)" }}>
               مهندس برمجيات شغوف ببناء تجارب رقمية استثنائية.
