@@ -172,7 +172,7 @@ const Home = () => {
   const certificates = [
     {
       icon: FaGraduationCap,
-      title: 'بكالوريوس علوم الحاسوب',
+      title: 'بكالوريوس تقنية معلومات',
       description: 'جامعة صنعاء - كلية الحاسوب',
       year: '2025'
     },
