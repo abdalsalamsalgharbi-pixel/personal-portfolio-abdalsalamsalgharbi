@@ -30,7 +30,7 @@ const Projects = () => {
         category: 'mobile',
         image: mobileAppImage,
         description: 'تطبيق موبايل متكامل يسمح للمواطنين بإرسال البلاغات الأمنية ومتابعتها مع نظام تحديد الموقع',
-        technologies: ['React Native', 'Redux', 'Socket.io', 'Google Maps API', 'Firebase', 'Node.js']
+        technologies: ['Flutter ', 'Redux', 'Socket.io', 'Google Maps API', 'Firebase', 'Node.js']
       },
       {
         id: 3,
@@ -82,7 +82,7 @@ const Projects = () => {
         category: 'mobile',
         image: mobileAppImage,
         description: 'تطبيق موبايل متكامل يسمح للمواطنين بإرسال البلاغات الأمنية ومتابعتها مع نظام تحديد الموقع',
-        technologies: ['React Native', 'Redux', 'Socket.io', 'Google Maps API', 'Firebase', 'Node.js']
+        technologies: ['Flutter ', 'Redux', 'Socket.io', 'Google Maps API', 'Firebase', 'Node.js']
       }
     ],
     uiux: [
